@@ -1,0 +1,13 @@
+//Need an efficient one.
+
+public int findMaximumXOR(int[] nums) {
+        int xor=0,res=0;
+        for(int i=0;i<nums.length-1;i++){
+            for(int j=1;j<nums.length;j++)
+            {
+                xor=nums[i]^nums[j];
+                res=Math.max(res,xor);
+            }
+        }
+        return res;
+    }
