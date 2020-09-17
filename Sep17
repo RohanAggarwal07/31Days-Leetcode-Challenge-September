@@ -1,0 +1,34 @@
+ public boolean isRobotBounded(String instructions) {
+        int dir=0,x_coord=0,y_coord=0;
+        for(int i=0;i<instructions.length();i++){
+            if(instructions.charAt(i)=='G'){
+                if(dir==0){
+                    y_coord++;
+                }
+                else if(dir==1){
+                    x_coord--;
+                }
+                else if(dir==2){
+                    y_coord--;
+                }
+                else if(dir==3){
+                    x_coord++;
+                }
+            }
+            if(instructions.charAt(i)=='L'){
+                 dir= (dir+1)%4;
+                }
+            if(instructions.charAt(i)=='R'){
+                if(dir==0){
+                    dir=3;
+                }
+                else{
+                dir--;
+                }
+            }
+        }
+        if((x_coord==0 && y_coord==0)||dir!=0){
+            return true;
+        }
+        return false;
+        }
